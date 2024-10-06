@@ -1,6 +1,6 @@
-// Haveno App extends the features of Haveno, supporting mobile devices and more.
+// Haveno Flutter extends the features of Haveno, supporting mobile devices and more.
 // Copyright (C) 2024 Kewbit (https://kewbit.org)
-// Source Code: https://git.haveno.com/haveno/haveno-app.git
+// Source Code: https://git.haveno.com/haveno/flutter_haveno.git
 //
 // Author: Kewbit
 //    Website: https://kewbit.org
