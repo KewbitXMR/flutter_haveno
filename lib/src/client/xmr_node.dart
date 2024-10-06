@@ -35,7 +35,7 @@ import 'package:haveno/src/schema/mixins.dart';
 class XmrNodeProvider with GrpcErrorHandler {
 
   /// The Haveno client used to communicate with the Haveno gRPC server.
-  final HavenoChannel havenoChannel;
+  final HavenoChannel havenoChannel = HavenoChannel();
 
   /// Creates an [XmrNodeProvider] instance.
   ///
@@ -47,7 +47,7 @@ class XmrNodeProvider with GrpcErrorHandler {
   /// ```dart
   /// final xmrNodeProvider = XmrNodeProvider(havenoChannel);
   /// ```
-  XmrNodeProvider(this.havenoChannel);
+  XmrNodeProvider();
 
   /// Fetches the XMR node settings from the server.
   ///

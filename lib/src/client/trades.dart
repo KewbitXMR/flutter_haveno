@@ -37,7 +37,7 @@ import 'package:haveno/src/schema/mixins.dart';
 class TradesClient with GrpcErrorHandler {
   
   /// The Haveno client used to communicate with the Haveno gRPC server.
-  final HavenoChannel havenoChannel;
+  final HavenoChannel havenoChannel = HavenoChannel();
 
   /// Constructs a [TradesClient] instance.
   ///
@@ -49,7 +49,7 @@ class TradesClient with GrpcErrorHandler {
   /// ```dart
   /// final tradesClient = TradesClient(havenoChannel);
   /// ```
-  TradesClient(this.havenoChannel);
+  TradesClient();
 
   /// Retrieves all trades from the Haveno gRPC server.
   ///
