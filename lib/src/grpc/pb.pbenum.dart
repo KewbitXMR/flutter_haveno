@@ -1,23 +1,6 @@
-// Haveno App extends the features of Haveno, supporting mobile devices and more.
-// Copyright (C) 2024 Kewbit (https://kewbit.org)
-// Source Code: https://git.haveno.com/haveno/haveno-app.git
 //
-// Author: Kewbit
-//    Website: https://kewbit.org
-//    Contact Email: kewbitxmr@protonmail.com or me@kewbit.org
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//  Generated code. Do not modify.
+//  source: pb.proto
 //
 // @dart = 2.12
 
@@ -365,7 +348,7 @@ class Offer_State extends $pb.ProtobufEnum {
 
 class OpenOffer_State extends $pb.ProtobufEnum {
   static const OpenOffer_State PB_ERROR = OpenOffer_State._(0, _omitEnumNames ? '' : 'PB_ERROR');
-  static const OpenOffer_State SCHEDULED = OpenOffer_State._(1, _omitEnumNames ? '' : 'SCHEDULED');
+  static const OpenOffer_State PENDING = OpenOffer_State._(1, _omitEnumNames ? '' : 'PENDING');
   static const OpenOffer_State AVAILABLE = OpenOffer_State._(2, _omitEnumNames ? '' : 'AVAILABLE');
   static const OpenOffer_State RESERVED = OpenOffer_State._(3, _omitEnumNames ? '' : 'RESERVED');
   static const OpenOffer_State CLOSED = OpenOffer_State._(4, _omitEnumNames ? '' : 'CLOSED');
@@ -374,7 +357,7 @@ class OpenOffer_State extends $pb.ProtobufEnum {
 
   static const $core.List<OpenOffer_State> values = <OpenOffer_State> [
     PB_ERROR,
-    SCHEDULED,
+    PENDING,
     AVAILABLE,
     RESERVED,
     CLOSED,

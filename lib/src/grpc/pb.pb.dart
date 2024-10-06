@@ -1,23 +1,6 @@
-// Haveno App extends the features of Haveno, supporting mobile devices and more.
-// Copyright (C) 2024 Kewbit (https://kewbit.org)
-// Source Code: https://git.haveno.com/haveno/haveno-app.git
 //
-// Author: Kewbit
-//    Website: https://kewbit.org
-//    Contact Email: kewbitxmr@protonmail.com or me@kewbit.org
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//  Generated code. Do not modify.
+//  source: pb.proto
 //
 // @dart = 2.12
 
@@ -12452,10 +12435,14 @@ class UpholdAccountPayload extends $pb.GeneratedMessage {
 class CashAppAccountPayload extends $pb.GeneratedMessage {
   factory CashAppAccountPayload({
     $core.String? emailOrMobileNrOrCashtag,
+    $core.String? extraInfo,
   }) {
     final $result = create();
     if (emailOrMobileNrOrCashtag != null) {
       $result.emailOrMobileNrOrCashtag = emailOrMobileNrOrCashtag;
+    }
+    if (extraInfo != null) {
+      $result.extraInfo = extraInfo;
     }
     return $result;
   }
@@ -12465,6 +12452,7 @@ class CashAppAccountPayload extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CashAppAccountPayload', package: const $pb.PackageName(_omitMessageNames ? '' : 'io.haveno.protobuffer'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'emailOrMobileNrOrCashtag')
+    ..aOS(2, _omitFieldNames ? '' : 'extraInfo')
     ..hasRequiredFields = false
   ;
 
@@ -12497,6 +12485,15 @@ class CashAppAccountPayload extends $pb.GeneratedMessage {
   $core.bool hasEmailOrMobileNrOrCashtag() => $_has(0);
   @$pb.TagNumber(1)
   void clearEmailOrMobileNrOrCashtag() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get extraInfo => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set extraInfo($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasExtraInfo() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearExtraInfo() => clearField(2);
 }
 
 class MoneyBeamAccountPayload extends $pb.GeneratedMessage {
@@ -12602,10 +12599,14 @@ class VenmoAccountPayload extends $pb.GeneratedMessage {
 class PayPalAccountPayload extends $pb.GeneratedMessage {
   factory PayPalAccountPayload({
     $core.String? emailOrMobileNrOrUsername,
+    $core.String? extraInfo,
   }) {
     final $result = create();
     if (emailOrMobileNrOrUsername != null) {
       $result.emailOrMobileNrOrUsername = emailOrMobileNrOrUsername;
+    }
+    if (extraInfo != null) {
+      $result.extraInfo = extraInfo;
     }
     return $result;
   }
@@ -12615,6 +12616,7 @@ class PayPalAccountPayload extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PayPalAccountPayload', package: const $pb.PackageName(_omitMessageNames ? '' : 'io.haveno.protobuffer'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'emailOrMobileNrOrUsername')
+    ..aOS(2, _omitFieldNames ? '' : 'extraInfo')
     ..hasRequiredFields = false
   ;
 
@@ -12647,6 +12649,15 @@ class PayPalAccountPayload extends $pb.GeneratedMessage {
   $core.bool hasEmailOrMobileNrOrUsername() => $_has(0);
   @$pb.TagNumber(1)
   void clearEmailOrMobileNrOrUsername() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get extraInfo => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set extraInfo($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasExtraInfo() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearExtraInfo() => clearField(2);
 }
 
 class PopmoneyAccountPayload extends $pb.GeneratedMessage {

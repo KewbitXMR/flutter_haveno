@@ -288,9 +288,8 @@ class XmrConnectionsClient with GrpcErrorHandler {
       throw DaemonNotConnectedException();
     }
     try {
-      await havenoChannel.xmrConnectionsClient!
-          .setAutoSwitch(SetAutoSwitchRequest(autoSwitch: autoSwitch));
-      return true;
+      GetAutoSwitchReply getAutoSwitchReply = await havenoChannel.xmrConnectionsClient!.getAutoSwitch(GetAutoSwitchRequest());
+      return getAutoSwitchReply.autoSwitch;
     } on GrpcError catch (e) {
       handleGrpcError(e);
     }

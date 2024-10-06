@@ -1,23 +1,6 @@
-// Haveno App extends the features of Haveno, supporting mobile devices and more.
-// Copyright (C) 2024 Kewbit (https://kewbit.org)
-// Source Code: https://git.haveno.com/haveno/haveno-app.git
 //
-// Author: Kewbit
-//    Website: https://kewbit.org
-//    Contact Email: kewbitxmr@protonmail.com or me@kewbit.org
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//  Generated code. Do not modify.
+//  source: grpc.proto
 //
 // @dart = 2.12
 
@@ -819,6 +802,27 @@ const SetAutoSwitchReply$json = {
 final $typed_data.Uint8List setAutoSwitchReplyDescriptor = $convert.base64Decode(
     'ChJTZXRBdXRvU3dpdGNoUmVwbHk=');
 
+@$core.Deprecated('Use getAutoSwitchRequestDescriptor instead')
+const GetAutoSwitchRequest$json = {
+  '1': 'GetAutoSwitchRequest',
+};
+
+/// Descriptor for `GetAutoSwitchRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAutoSwitchRequestDescriptor = $convert.base64Decode(
+    'ChRHZXRBdXRvU3dpdGNoUmVxdWVzdA==');
+
+@$core.Deprecated('Use getAutoSwitchReplyDescriptor instead')
+const GetAutoSwitchReply$json = {
+  '1': 'GetAutoSwitchReply',
+  '2': [
+    {'1': 'auto_switch', '3': 1, '4': 1, '5': 8, '10': 'autoSwitch'},
+  ],
+};
+
+/// Descriptor for `GetAutoSwitchReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAutoSwitchReplyDescriptor = $convert.base64Decode(
+    'ChJHZXRBdXRvU3dpdGNoUmVwbHkSHwoLYXV0b19zd2l0Y2gYASABKAhSCmF1dG9Td2l0Y2g=');
+
 @$core.Deprecated('Use isXmrNodeOnlineRequestDescriptor instead')
 const IsXmrNodeOnlineRequest$json = {
   '1': 'IsXmrNodeOnlineRequest',
@@ -1330,6 +1334,28 @@ final $typed_data.Uint8List createCryptoCurrencyPaymentAccountRequestDescriptor 
     '5hbWUYASABKAlSC2FjY291bnROYW1lEiMKDWN1cnJlbmN5X2NvZGUYAiABKAlSDGN1cnJlbmN5'
     'Q29kZRIYCgdhZGRyZXNzGAMgASgJUgdhZGRyZXNzEiMKDXRyYWRlX2luc3RhbnQYBCABKAhSDH'
     'RyYWRlSW5zdGFudA==');
+
+@$core.Deprecated('Use deletePaymentAccountRequestDescriptor instead')
+const DeletePaymentAccountRequest$json = {
+  '1': 'DeletePaymentAccountRequest',
+  '2': [
+    {'1': 'payment_account_id', '3': 1, '4': 1, '5': 9, '10': 'paymentAccountId'},
+  ],
+};
+
+/// Descriptor for `DeletePaymentAccountRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deletePaymentAccountRequestDescriptor = $convert.base64Decode(
+    'ChtEZWxldGVQYXltZW50QWNjb3VudFJlcXVlc3QSLAoScGF5bWVudF9hY2NvdW50X2lkGAEgAS'
+    'gJUhBwYXltZW50QWNjb3VudElk');
+
+@$core.Deprecated('Use deletePaymentAccountReplyDescriptor instead')
+const DeletePaymentAccountReply$json = {
+  '1': 'DeletePaymentAccountReply',
+};
+
+/// Descriptor for `DeletePaymentAccountReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deletePaymentAccountReplyDescriptor = $convert.base64Decode(
+    'ChlEZWxldGVQYXltZW50QWNjb3VudFJlcGx5');
 
 @$core.Deprecated('Use createCryptoCurrencyPaymentAccountReplyDescriptor instead')
 const CreateCryptoCurrencyPaymentAccountReply$json = {

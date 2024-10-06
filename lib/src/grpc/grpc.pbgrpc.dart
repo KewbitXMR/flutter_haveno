@@ -1,23 +1,6 @@
-// Haveno App extends the features of Haveno, supporting mobile devices and more.
-// Copyright (C) 2024 Kewbit (https://kewbit.org)
-// Source Code: https://git.haveno.com/haveno/haveno-app.git
 //
-// Author: Kewbit
-//    Website: https://kewbit.org
-//    Contact Email: kewbitxmr@protonmail.com or me@kewbit.org
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//  Generated code. Do not modify.
+//  source: grpc.proto
 //
 // @dart = 2.12
 
@@ -610,6 +593,10 @@ class XmrConnectionsClient extends $grpc.Client {
       '/io.haveno.protobuffer.XmrConnections/SetAutoSwitch',
       ($0.SetAutoSwitchRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.SetAutoSwitchReply.fromBuffer(value));
+  static final _$getAutoSwitch = $grpc.ClientMethod<$0.GetAutoSwitchRequest, $0.GetAutoSwitchReply>(
+      '/io.haveno.protobuffer.XmrConnections/GetAutoSwitch',
+      ($0.GetAutoSwitchRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.GetAutoSwitchReply.fromBuffer(value));
 
   XmrConnectionsClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -659,6 +646,10 @@ class XmrConnectionsClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.SetAutoSwitchReply> setAutoSwitch($0.SetAutoSwitchRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setAutoSwitch, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.GetAutoSwitchReply> getAutoSwitch($0.GetAutoSwitchRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAutoSwitch, request, options: options);
   }
 }
 
@@ -744,6 +735,13 @@ abstract class XmrConnectionsServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SetAutoSwitchRequest.fromBuffer(value),
         ($0.SetAutoSwitchReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetAutoSwitchRequest, $0.GetAutoSwitchReply>(
+        'GetAutoSwitch',
+        getAutoSwitch_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.GetAutoSwitchRequest.fromBuffer(value),
+        ($0.GetAutoSwitchReply value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.AddConnectionReply> addConnection_Pre($grpc.ServiceCall call, $async.Future<$0.AddConnectionRequest> request) async {
@@ -790,6 +788,10 @@ abstract class XmrConnectionsServiceBase extends $grpc.Service {
     return setAutoSwitch(call, await request);
   }
 
+  $async.Future<$0.GetAutoSwitchReply> getAutoSwitch_Pre($grpc.ServiceCall call, $async.Future<$0.GetAutoSwitchRequest> request) async {
+    return getAutoSwitch(call, await request);
+  }
+
   $async.Future<$0.AddConnectionReply> addConnection($grpc.ServiceCall call, $0.AddConnectionRequest request);
   $async.Future<$0.RemoveConnectionReply> removeConnection($grpc.ServiceCall call, $0.RemoveConnectionRequest request);
   $async.Future<$0.GetConnectionReply> getConnection($grpc.ServiceCall call, $0.GetConnectionRequest request);
@@ -801,6 +803,7 @@ abstract class XmrConnectionsServiceBase extends $grpc.Service {
   $async.Future<$0.StopCheckingConnectionReply> stopCheckingConnection($grpc.ServiceCall call, $0.StopCheckingConnectionRequest request);
   $async.Future<$0.GetBestAvailableConnectionReply> getBestAvailableConnection($grpc.ServiceCall call, $0.GetBestAvailableConnectionRequest request);
   $async.Future<$0.SetAutoSwitchReply> setAutoSwitch($grpc.ServiceCall call, $0.SetAutoSwitchRequest request);
+  $async.Future<$0.GetAutoSwitchReply> getAutoSwitch($grpc.ServiceCall call, $0.GetAutoSwitchRequest request);
 }
 @$pb.GrpcServiceName('io.haveno.protobuffer.XmrNode')
 class XmrNodeClient extends $grpc.Client {
@@ -1064,6 +1067,10 @@ class PaymentAccountsClient extends $grpc.Client {
       '/io.haveno.protobuffer.PaymentAccounts/CreateCryptoCurrencyPaymentAccount',
       ($0.CreateCryptoCurrencyPaymentAccountRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.CreateCryptoCurrencyPaymentAccountReply.fromBuffer(value));
+  static final _$deletePaymentAccount = $grpc.ClientMethod<$0.DeletePaymentAccountRequest, $0.DeletePaymentAccountReply>(
+      '/io.haveno.protobuffer.PaymentAccounts/DeletePaymentAccount',
+      ($0.DeletePaymentAccountRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.DeletePaymentAccountReply.fromBuffer(value));
   static final _$getCryptoCurrencyPaymentMethods = $grpc.ClientMethod<$0.GetCryptoCurrencyPaymentMethodsRequest, $0.GetCryptoCurrencyPaymentMethodsReply>(
       '/io.haveno.protobuffer.PaymentAccounts/GetCryptoCurrencyPaymentMethods',
       ($0.GetCryptoCurrencyPaymentMethodsRequest value) => value.writeToBuffer(),
@@ -1101,6 +1108,10 @@ class PaymentAccountsClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.CreateCryptoCurrencyPaymentAccountReply> createCryptoCurrencyPaymentAccount($0.CreateCryptoCurrencyPaymentAccountRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$createCryptoCurrencyPaymentAccount, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.DeletePaymentAccountReply> deletePaymentAccount($0.DeletePaymentAccountRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deletePaymentAccount, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.GetCryptoCurrencyPaymentMethodsReply> getCryptoCurrencyPaymentMethods($0.GetCryptoCurrencyPaymentMethodsRequest request, {$grpc.CallOptions? options}) {
@@ -1159,6 +1170,13 @@ abstract class PaymentAccountsServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.CreateCryptoCurrencyPaymentAccountRequest.fromBuffer(value),
         ($0.CreateCryptoCurrencyPaymentAccountReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DeletePaymentAccountRequest, $0.DeletePaymentAccountReply>(
+        'DeletePaymentAccount',
+        deletePaymentAccount_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.DeletePaymentAccountRequest.fromBuffer(value),
+        ($0.DeletePaymentAccountReply value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.GetCryptoCurrencyPaymentMethodsRequest, $0.GetCryptoCurrencyPaymentMethodsReply>(
         'GetCryptoCurrencyPaymentMethods',
         getCryptoCurrencyPaymentMethods_Pre,
@@ -1199,6 +1217,10 @@ abstract class PaymentAccountsServiceBase extends $grpc.Service {
     return createCryptoCurrencyPaymentAccount(call, await request);
   }
 
+  $async.Future<$0.DeletePaymentAccountReply> deletePaymentAccount_Pre($grpc.ServiceCall call, $async.Future<$0.DeletePaymentAccountRequest> request) async {
+    return deletePaymentAccount(call, await request);
+  }
+
   $async.Future<$0.GetCryptoCurrencyPaymentMethodsReply> getCryptoCurrencyPaymentMethods_Pre($grpc.ServiceCall call, $async.Future<$0.GetCryptoCurrencyPaymentMethodsRequest> request) async {
     return getCryptoCurrencyPaymentMethods(call, await request);
   }
@@ -1213,6 +1235,7 @@ abstract class PaymentAccountsServiceBase extends $grpc.Service {
   $async.Future<$0.GetPaymentAccountFormReply> getPaymentAccountForm($grpc.ServiceCall call, $0.GetPaymentAccountFormRequest request);
   $async.Future<$0.GetPaymentAccountFormAsJsonReply> getPaymentAccountFormAsJson($grpc.ServiceCall call, $0.GetPaymentAccountFormAsJsonRequest request);
   $async.Future<$0.CreateCryptoCurrencyPaymentAccountReply> createCryptoCurrencyPaymentAccount($grpc.ServiceCall call, $0.CreateCryptoCurrencyPaymentAccountRequest request);
+  $async.Future<$0.DeletePaymentAccountReply> deletePaymentAccount($grpc.ServiceCall call, $0.DeletePaymentAccountRequest request);
   $async.Future<$0.GetCryptoCurrencyPaymentMethodsReply> getCryptoCurrencyPaymentMethods($grpc.ServiceCall call, $0.GetCryptoCurrencyPaymentMethodsRequest request);
   $async.Future<$0.ValidateFormFieldReply> validateFormField($grpc.ServiceCall call, $0.ValidateFormFieldRequest request);
 }

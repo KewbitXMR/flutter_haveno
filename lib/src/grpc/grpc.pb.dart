@@ -1,23 +1,6 @@
-// Haveno App extends the features of Haveno, supporting mobile devices and more.
-// Copyright (C) 2024 Kewbit (https://kewbit.org)
-// Source Code: https://git.haveno.com/haveno/haveno-app.git
 //
-// Author: Kewbit
-//    Website: https://kewbit.org
-//    Contact Email: kewbitxmr@protonmail.com or me@kewbit.org
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//  Generated code. Do not modify.
+//  source: grpc.proto
 //
 // @dart = 2.12
 
@@ -3009,6 +2992,88 @@ class SetAutoSwitchReply extends $pb.GeneratedMessage {
   static SetAutoSwitchReply? _defaultInstance;
 }
 
+class GetAutoSwitchRequest extends $pb.GeneratedMessage {
+  factory GetAutoSwitchRequest() => create();
+  GetAutoSwitchRequest._() : super();
+  factory GetAutoSwitchRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetAutoSwitchRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAutoSwitchRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'io.haveno.protobuffer'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetAutoSwitchRequest clone() => GetAutoSwitchRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetAutoSwitchRequest copyWith(void Function(GetAutoSwitchRequest) updates) => super.copyWith((message) => updates(message as GetAutoSwitchRequest)) as GetAutoSwitchRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetAutoSwitchRequest create() => GetAutoSwitchRequest._();
+  GetAutoSwitchRequest createEmptyInstance() => create();
+  static $pb.PbList<GetAutoSwitchRequest> createRepeated() => $pb.PbList<GetAutoSwitchRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetAutoSwitchRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAutoSwitchRequest>(create);
+  static GetAutoSwitchRequest? _defaultInstance;
+}
+
+class GetAutoSwitchReply extends $pb.GeneratedMessage {
+  factory GetAutoSwitchReply({
+    $core.bool? autoSwitch,
+  }) {
+    final $result = create();
+    if (autoSwitch != null) {
+      $result.autoSwitch = autoSwitch;
+    }
+    return $result;
+  }
+  GetAutoSwitchReply._() : super();
+  factory GetAutoSwitchReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetAutoSwitchReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAutoSwitchReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'io.haveno.protobuffer'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'autoSwitch')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetAutoSwitchReply clone() => GetAutoSwitchReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetAutoSwitchReply copyWith(void Function(GetAutoSwitchReply) updates) => super.copyWith((message) => updates(message as GetAutoSwitchReply)) as GetAutoSwitchReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetAutoSwitchReply create() => GetAutoSwitchReply._();
+  GetAutoSwitchReply createEmptyInstance() => create();
+  static $pb.PbList<GetAutoSwitchReply> createRepeated() => $pb.PbList<GetAutoSwitchReply>();
+  @$core.pragma('dart2js:noInline')
+  static GetAutoSwitchReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAutoSwitchReply>(create);
+  static GetAutoSwitchReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get autoSwitch => $_getBF(0);
+  @$pb.TagNumber(1)
+  set autoSwitch($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasAutoSwitch() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAutoSwitch() => clearField(1);
+}
+
 class IsXmrNodeOnlineRequest extends $pb.GeneratedMessage {
   factory IsXmrNodeOnlineRequest() => create();
   IsXmrNodeOnlineRequest._() : super();
@@ -5179,6 +5244,88 @@ class CreateCryptoCurrencyPaymentAccountRequest extends $pb.GeneratedMessage {
   $core.bool hasTradeInstant() => $_has(3);
   @$pb.TagNumber(4)
   void clearTradeInstant() => clearField(4);
+}
+
+class DeletePaymentAccountRequest extends $pb.GeneratedMessage {
+  factory DeletePaymentAccountRequest({
+    $core.String? paymentAccountId,
+  }) {
+    final $result = create();
+    if (paymentAccountId != null) {
+      $result.paymentAccountId = paymentAccountId;
+    }
+    return $result;
+  }
+  DeletePaymentAccountRequest._() : super();
+  factory DeletePaymentAccountRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeletePaymentAccountRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePaymentAccountRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'io.haveno.protobuffer'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'paymentAccountId')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeletePaymentAccountRequest clone() => DeletePaymentAccountRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeletePaymentAccountRequest copyWith(void Function(DeletePaymentAccountRequest) updates) => super.copyWith((message) => updates(message as DeletePaymentAccountRequest)) as DeletePaymentAccountRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeletePaymentAccountRequest create() => DeletePaymentAccountRequest._();
+  DeletePaymentAccountRequest createEmptyInstance() => create();
+  static $pb.PbList<DeletePaymentAccountRequest> createRepeated() => $pb.PbList<DeletePaymentAccountRequest>();
+  @$core.pragma('dart2js:noInline')
+  static DeletePaymentAccountRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeletePaymentAccountRequest>(create);
+  static DeletePaymentAccountRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get paymentAccountId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set paymentAccountId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPaymentAccountId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPaymentAccountId() => clearField(1);
+}
+
+class DeletePaymentAccountReply extends $pb.GeneratedMessage {
+  factory DeletePaymentAccountReply() => create();
+  DeletePaymentAccountReply._() : super();
+  factory DeletePaymentAccountReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeletePaymentAccountReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePaymentAccountReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'io.haveno.protobuffer'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeletePaymentAccountReply clone() => DeletePaymentAccountReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeletePaymentAccountReply copyWith(void Function(DeletePaymentAccountReply) updates) => super.copyWith((message) => updates(message as DeletePaymentAccountReply)) as DeletePaymentAccountReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeletePaymentAccountReply create() => DeletePaymentAccountReply._();
+  DeletePaymentAccountReply createEmptyInstance() => create();
+  static $pb.PbList<DeletePaymentAccountReply> createRepeated() => $pb.PbList<DeletePaymentAccountReply>();
+  @$core.pragma('dart2js:noInline')
+  static DeletePaymentAccountReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeletePaymentAccountReply>(create);
+  static DeletePaymentAccountReply? _defaultInstance;
 }
 
 class CreateCryptoCurrencyPaymentAccountReply extends $pb.GeneratedMessage {

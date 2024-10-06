@@ -1,23 +1,6 @@
-// Haveno App extends the features of Haveno, supporting mobile devices and more.
-// Copyright (C) 2024 Kewbit (https://kewbit.org)
-// Source Code: https://git.haveno.com/haveno/haveno-app.git
 //
-// Author: Kewbit
-//    Website: https://kewbit.org
-//    Contact Email: kewbitxmr@protonmail.com or me@kewbit.org
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Affero General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Affero General Public License for more details.
-//
-// You should have received a copy of the GNU Affero General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//  Generated code. Do not modify.
+//  source: pb.proto
 //
 // @dart = 2.12
 
@@ -2746,13 +2729,15 @@ const CashAppAccountPayload$json = {
   '1': 'CashAppAccountPayload',
   '2': [
     {'1': 'email_or_mobile_nr_or_cashtag', '3': 1, '4': 1, '5': 9, '10': 'emailOrMobileNrOrCashtag'},
+    {'1': 'extra_info', '3': 2, '4': 1, '5': 9, '10': 'extraInfo'},
   ],
 };
 
 /// Descriptor for `CashAppAccountPayload`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List cashAppAccountPayloadDescriptor = $convert.base64Decode(
     'ChVDYXNoQXBwQWNjb3VudFBheWxvYWQSPwodZW1haWxfb3JfbW9iaWxlX25yX29yX2Nhc2h0YW'
-    'cYASABKAlSGGVtYWlsT3JNb2JpbGVOck9yQ2FzaHRhZw==');
+    'cYASABKAlSGGVtYWlsT3JNb2JpbGVOck9yQ2FzaHRhZxIdCgpleHRyYV9pbmZvGAIgASgJUgll'
+    'eHRyYUluZm8=');
 
 @$core.Deprecated('Use moneyBeamAccountPayloadDescriptor instead')
 const MoneyBeamAccountPayload$json = {
@@ -2785,13 +2770,15 @@ const PayPalAccountPayload$json = {
   '1': 'PayPalAccountPayload',
   '2': [
     {'1': 'email_or_mobile_nr_or_username', '3': 1, '4': 1, '5': 9, '10': 'emailOrMobileNrOrUsername'},
+    {'1': 'extra_info', '3': 2, '4': 1, '5': 9, '10': 'extraInfo'},
   ],
 };
 
 /// Descriptor for `PayPalAccountPayload`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List payPalAccountPayloadDescriptor = $convert.base64Decode(
     'ChRQYXlQYWxBY2NvdW50UGF5bG9hZBJBCh5lbWFpbF9vcl9tb2JpbGVfbnJfb3JfdXNlcm5hbW'
-    'UYASABKAlSGWVtYWlsT3JNb2JpbGVOck9yVXNlcm5hbWU=');
+    'UYASABKAlSGWVtYWlsT3JNb2JpbGVOck9yVXNlcm5hbWUSHQoKZXh0cmFfaW5mbxgCIAEoCVIJ'
+    'ZXh0cmFJbmZv');
 
 @$core.Deprecated('Use popmoneyAccountPayloadDescriptor instead')
 const PopmoneyAccountPayload$json = {
@@ -3636,7 +3623,7 @@ const OpenOffer_State$json = {
   '1': 'State',
   '2': [
     {'1': 'PB_ERROR', '2': 0},
-    {'1': 'SCHEDULED', '2': 1},
+    {'1': 'PENDING', '2': 1},
     {'1': 'AVAILABLE', '2': 2},
     {'1': 'RESERVED', '2': 3},
     {'1': 'CLOSED', '2': 4},
@@ -3656,9 +3643,9 @@ final $typed_data.Uint8List openOfferDescriptor = $convert.base64Decode(
     'IAMoCVIRc2NoZWR1bGVkVHhIYXNoZXMSKQoQc2NoZWR1bGVkX2Ftb3VudBgIIAEoCVIPc2NoZW'
     'R1bGVkQW1vdW50EiYKD3Jlc2VydmVfdHhfaGFzaBgJIAEoCVINcmVzZXJ2ZVR4SGFzaBIkCg5y'
     'ZXNlcnZlX3R4X2hleBgKIAEoCVIMcmVzZXJ2ZVR4SGV4EiQKDnJlc2VydmVfdHhfa2V5GAsgAS'
-    'gJUgxyZXNlcnZlVHhLZXkibAoFU3RhdGUSDAoIUEJfRVJST1IQABINCglTQ0hFRFVMRUQQARIN'
-    'CglBVkFJTEFCTEUQAhIMCghSRVNFUlZFRBADEgoKBkNMT1NFRBAEEgwKCENBTkNFTEVEEAUSDw'
-    'oLREVBQ1RJVkFURUQQBg==');
+    'gJUgxyZXNlcnZlVHhLZXkiagoFU3RhdGUSDAoIUEJfRVJST1IQABILCgdQRU5ESU5HEAESDQoJ'
+    'QVZBSUxBQkxFEAISDAoIUkVTRVJWRUQQAxIKCgZDTE9TRUQQBBIMCghDQU5DRUxFRBAFEg8KC0'
+    'RFQUNUSVZBVEVEEAY=');
 
 @$core.Deprecated('Use tradableDescriptor instead')
 const Tradable$json = {
