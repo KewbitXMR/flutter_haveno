@@ -91,3 +91,10 @@
 
 * Added the notifications listener client, with dartdocs and exported it
 
+# 1.1.0
+
+* Added the getAutoSwitch grpc code
+
+# 1.1.1
+
+* Added dart doc for new feature

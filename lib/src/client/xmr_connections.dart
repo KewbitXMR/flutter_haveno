@@ -283,16 +283,63 @@ class XmrConnectionsClient with GrpcErrorHandler {
     return null;
   }
 
+  /// Gets the auto-switch connection setting for the Haveno daemon.
+  /// 
+  /// This method queries the Haveno daemon to check whether the automatic
+  /// switching to the best available Monero (XMR) connection is enabled or
+  /// disabled.
+  ///
+  /// If the Haveno channel is not connected, a [DaemonNotConnectedException] will
+  /// be thrown.
+  ///
+  /// It returns a [bool] indicating the current auto-switch setting:
+  /// - `true` if auto-switch is enabled.
+  /// - `false` if auto-switch is disabled.
+  /// 
+  /// If there is a communication error (e.g., a gRPC error), the error will be
+  /// caught and handled using the [handleGrpcError] method.
+  ///
+  /// ### Parameters:
+  /// - `autoSwitch`: A boolean flag that specifies the setting to check for the
+  /// auto-switch mechanism (not actively used in this method but could be passed).
+  ///
+  /// ### Returns:
+  /// - A [Future] that resolves to a [bool] indicating the auto-switch state:
+  ///   - `true`: Auto-switch is enabled.
+  ///   - `false`: Auto-switch is disabled.
+  ///   - `null`: If an error occurs or if no response is received.
+  ///
+  /// ### Throws:
+  /// - [DaemonNotConnectedException] if the Haveno daemon is not connected.
+  /// 
+  /// ### Example usage:
+  /// ```dart
+  /// bool? autoSwitchStatus = await getAutoSwitchBestConnection();
+  /// if (autoSwitchStatus != null && autoSwitchStatus) {
+  ///   print("Auto-switch to best XMR connection is enabled.");
+  /// } else {
+  ///   print("Auto-switch to best XMR connection is disabled.");
+  /// }
+  /// ```
   Future<bool?> getAutoSwitchBestConnection(bool autoSwitch) async {
+    // Check if the Haveno daemon is connected.
     if (!havenoChannel.isConnected) {
-      throw DaemonNotConnectedException();
+      throw DaemonNotConnectedException(); // Throw exception if not connected.
     }
+    
     try {
-      GetAutoSwitchReply getAutoSwitchReply = await havenoChannel.xmrConnectionsClient!.getAutoSwitch(GetAutoSwitchRequest());
+      // Send request to get the current auto-switch setting from the XMR connections client.
+      GetAutoSwitchReply getAutoSwitchReply = await havenoChannel.xmrConnectionsClient!
+          .getAutoSwitch(GetAutoSwitchRequest());
+      
+      // Return the current auto-switch setting.
       return getAutoSwitchReply.autoSwitch;
     } on GrpcError catch (e) {
+      // Handle any gRPC-related errors.
       handleGrpcError(e);
     }
+    
+    // Return null if an error occurs or no valid response is received.
     return null;
   }
 }
