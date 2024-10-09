@@ -20,20 +20,22 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:grpc/grpc.dart';
-import 'package:haveno/haveno.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
+import 'package:haveno/src/exceptions/connection_exceptions.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A service that handles the retrieval of the Haveno daemon version via gRPC.
 ///
-/// The `GetVersionClient` communicates with the Haveno gRPC server to fetch
+/// The `GetVersionService` communicates with the Haveno gRPC server to fetch
 /// the current version of the daemon. It uses the [HavenoChannel] to perform 
 /// the gRPC request and returns the version of the daemon.
-class GetVersionClient with GrpcErrorHandler {
+class GetVersionService with GrpcErrorHandler {
   
   /// The Haveno client used to communicate with the Haveno gRPC server.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Creates a [GetVersionClient] instance.
+  /// Creates a [GetVersionService] instance.
   ///
   /// The [havenoChannel] is required to interact with the Haveno gRPC server 
   /// and fetch the version information.
@@ -41,9 +43,9 @@ class GetVersionClient with GrpcErrorHandler {
   /// Example:
   /// 
   /// ```dart
-  /// final versionClient = GetVersionClient(havenoChannel);
+  /// final versionService = GetVersionService(havenoChannel);
   /// ```
-  GetVersionClient();
+  GetVersionService();
 
 
   /// Fetches the current version of the Haveno daemon from the gRPC server.

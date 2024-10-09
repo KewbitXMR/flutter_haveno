@@ -98,3 +98,15 @@
 # 1.1.1
 
 * Added dart doc for new feature
+
+# 1.1.2
+
+* Fixed some remaining dependancy injections
+
+# 2.0.0
+
+* Refactored to be services instead of clients
+
+# 2.0.1
+
+* Type

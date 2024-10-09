@@ -20,9 +20,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A service that manages XMR (Monero) node connections via the Haveno gRPC API.
@@ -31,12 +31,12 @@ import 'package:haveno/src/schema/mixins.dart';
 /// adding, removing, and managing Monero node connections. It communicates with
 /// the Haveno gRPC service and uses the [HavenoChannel] to perform the necessary
 /// gRPC requests. It also handles gRPC errors using the [GrpcErrorHandler] mixin.
-class XmrConnectionsClient with GrpcErrorHandler {
+class XmrConnectionsService with GrpcErrorHandler {
   
   /// The Haveno client used to communicate with the Haveno gRPC server.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Creates a [XmrConnectionsClient] instance.
+  /// Creates a [XmrConnectionsService] instance.
   ///
   /// The [havenoChannel] is required to interact with the Haveno gRPC server to
   /// manage Monero node connections.
@@ -46,7 +46,7 @@ class XmrConnectionsClient with GrpcErrorHandler {
   /// ```dart
   /// final xmrConnectionsClient = XmrConnectionsClient(havenoChannel);
   /// ```
-  XmrConnectionsClient();
+  XmrConnectionsService();
 
   /// Fetches the list of XMR connections from the server.
   ///

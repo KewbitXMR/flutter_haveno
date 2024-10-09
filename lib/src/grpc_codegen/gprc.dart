@@ -19,27 +19,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:grpc/grpc.dart';
-import 'package:haveno/haveno.dart';
-import 'package:haveno/src/schema/mixins.dart';
-
-class HelpClient with GrpcErrorHandler {
-  
-  /// The Haveno client used to communicate with the Haveno gRPC server.
-  final HavenoChannel havenoChannel = HavenoChannel();
-
-  Future<String?> getMethodHelp(String methodName) async {
-    if (!havenoChannel.isConnected) {
-      throw DaemonNotConnectedException();
-    }
-    try {
-      final getHelpReply = await havenoChannel.helpClient!
-          .getMethodHelp(GetMethodHelpRequest(methodName: methodName));
-
-      return getHelpReply.methodHelp;
-    } on GrpcError catch (e) {
-      handleGrpcError(e);
-    }
-    return null;
-  }
-}
+export 'package:haveno/src/grpc_codegen/pb.pb.dart';
+export 'package:haveno/src/grpc_codegen/pb.pbenum.dart';
+export 'package:haveno/src/grpc_codegen/pb.pbjson.dart';
+export 'package:haveno/src/grpc_codegen/grpc.pb.dart';
+export 'package:haveno/src/grpc_codegen/grpc.pbenum.dart';
+//export 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+export 'package:haveno/src/grpc_codegen/grpc.pbjson.dart';

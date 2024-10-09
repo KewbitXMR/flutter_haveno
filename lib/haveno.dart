@@ -21,7 +21,7 @@
 
 library haveno;
 
-export 'src/grpc/gprc.dart';
-export 'src/client/haveno_channel.dart';
-export 'src/client/clients.dart';
+export 'src/channel/haveno_channel.dart';
+export 'src/service/services.dart';
 export 'src/exceptions/exceptions.dart';
+export 'src/grpc_codegen/gprc.dart';

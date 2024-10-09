@@ -20,23 +20,23 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A service that handles wallet-related operations via the Haveno gRPC API.
 ///
-/// The `WalletsClient` class provides functions for interacting with the
+/// The `WalletsService` class provides functions for interacting with the
 /// Haveno gRPC server to perform various wallet-related tasks, such as retrieving 
 /// balances, addresses, and transactions, creating transactions, and managing
 /// wallet passwords.
-class WalletsClient with GrpcErrorHandler {
+class WalletsService with GrpcErrorHandler {
   
   /// The Haveno client used to communicate with the Haveno gRPC server.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Creates a [WalletsClient] instance.
+  /// Creates a [WalletsService] instance.
   ///
   /// The [havenoChannel] is required to interact with the Haveno gRPC server
   /// to perform wallet-related operations.
@@ -46,7 +46,7 @@ class WalletsClient with GrpcErrorHandler {
   /// ```dart
   /// final walletsClient = WalletsClient(havenoChannel);
   /// ```
-  WalletsClient();
+  WalletsService();
 
   /// Retrieves the balances of the wallet.
   ///
@@ -57,7 +57,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final balances = await walletsClient.getBalances();
+  /// final balances = await walletService.getBalances();
   /// print('Available balance: ${balances?.available}');
   /// ```
   ///
@@ -66,7 +66,7 @@ class WalletsClient with GrpcErrorHandler {
   /// - `null` if an error occurs.
   ///
   /// Throws:
-  /// - [DaemonNotConnectedException] if the client is not connected to the gRPC server.
+  /// - [DaemonNotConnectedException] if the service is not connected to the gRPC server.
   Future<BalancesInfo?> getBalances() async {
     if (!havenoChannel.isConnected) {
       throw DaemonNotConnectedException();
@@ -90,7 +90,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final address = await walletsClient.getXmrPrimaryAddress();
+  /// final address = await walletsService.getXmrPrimaryAddress();
   /// print('Primary XMR Address: $address');
   /// ```
   ///
@@ -150,7 +150,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final tx = await walletsClient.createXmrTx([destination1, destination2]);
+  /// final tx = await walletsService.createXmrTx([destination1, destination2]);
   /// print('Transaction ID: ${tx?.txId}');
   /// ```
   ///
@@ -179,7 +179,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await walletsClient.relayXmrTx(txMetadata);
+  /// await walletsService.relayXmrTx(txMetadata);
   /// ```
   Future<void> relayXmrTx(String metadata) async {
     if (!havenoChannel.isConnected) {
@@ -201,7 +201,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final seed = await walletsClient.getXmrSeed();
+  /// final seed = await walletsService.getXmrSeed();
   /// print('Wallet Seed: $seed');
   /// ```
   ///
@@ -229,7 +229,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await walletsClient.setWalletPassword('newPassword', 'currentPassword');
+  /// await walletsService.setWalletPassword('newPassword', 'currentPassword');
   /// ```
   Future<void> setWalletPassword(String newPassword, String? password) async {
     if (!havenoChannel.isConnected) {
@@ -251,7 +251,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await walletsClient.lockWallet('password');
+  /// await walletsService.lockWallet('password');
   /// ```
   Future<void> lockWallet(String password) async {
     if (!havenoChannel.isConnected) {
@@ -271,7 +271,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await walletsClient.unlockWallet('password');
+  /// await walletsService.unlockWallet('password');
   /// ```
   Future<void> unlockWallet(String password) async {
     if (!havenoChannel.isConnected) {
@@ -292,7 +292,7 @@ class WalletsClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await walletsClient.removeWalletPassword('password');
+  /// await walletsService.removeWalletPassword('password');
   /// ```
   Future<void> removeWalletPassword(String password) async {
     if (!havenoChannel.isConnected) {

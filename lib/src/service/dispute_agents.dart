@@ -21,25 +21,25 @@
 
 import 'dart:async';
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
-/// The [DisputeAgentClient] class provides functionalities to manage
+/// The [DisputeAgentService] class provides functionalities to manage
 /// dispute agents within the Haveno platform. It allows for the registration
 /// and unregistration of dispute agents through gRPC calls.
 ///
 /// This service uses a [HavenoChannel] to communicate with the Haveno server.
 /// If the client is not connected, operations will throw a [DaemonNotConnectedException].
-class DisputeAgentClient with GrpcErrorHandler {
+class DisputeAgentService with GrpcErrorHandler {
   /// The [HavenoChannel] used for making requests to the Haveno server.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Constructor for [DisputeAgentClient] that initializes it with a [HavenoChannel].
+  /// Constructor for [DisputeAgentService] that initializes it with a [HavenoChannel].
   ///
   /// The [havenoChannel] parameter is required to communicate with the Haveno server.
-  DisputeAgentClient();
+  DisputeAgentService();
 
   /// Registers a dispute agent on the Haveno server.
   ///
@@ -53,7 +53,7 @@ class DisputeAgentClient with GrpcErrorHandler {
   /// Example:
   /// 
   /// ```dart
-  /// await disputeAgentClient.registerDisputeAgent('mediator', 'some_registration_key');
+  /// await disputeAgentService.registerDisputeAgent('mediator', 'some_registration_key');
   /// ```
   Future<void> registerDisputeAgent(String disputeAgentType, String registrationKey) async {
     if (!havenoChannel.isConnected) {
@@ -81,7 +81,7 @@ class DisputeAgentClient with GrpcErrorHandler {
   /// Example:
   /// 
   /// ```dart
-  /// await disputeAgentClient.unregisterDisputeAgent('mediator');
+  /// await disputeAgentService.unregisterDisputeAgent('mediator');
   /// ```
   Future<void> unregisterDisputeAgent(String disputeAgentType) async {
     if (!havenoChannel.isConnected) {

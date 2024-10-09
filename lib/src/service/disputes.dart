@@ -23,14 +23,14 @@ import 'dart:async';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/widgets.dart';
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
-import 'package:haveno/src/grpc/pb.pb.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/pb.pb.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 
-class DisputeClient with GrpcErrorHandler {
+class DisputeService with GrpcErrorHandler {
   final HavenoChannel havenoChannel = HavenoChannel();
   List<Dispute> _disputes = [];
 
@@ -46,7 +46,7 @@ class DisputeClient with GrpcErrorHandler {
   // TradeID to dispute map
   final Map<String, Dispute> _tradeIdToDisputeMap = {};
 
-  DisputeClient(); //: super(const Duration(minutes: 1));
+  DisputeService(); //: super(const Duration(minutes: 1));
 
 
   // Method to get or create a StreamController for a specific chat

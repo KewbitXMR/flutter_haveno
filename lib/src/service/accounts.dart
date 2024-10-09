@@ -21,12 +21,12 @@
 
 import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
-/// The [AccountClient] class provides various functionalities for managing
+/// The [AccountService] class provides various functionalities for managing
 /// a user's account on the Haveno platform. It includes methods to check if an
 /// account exists, create an account, change the password, and handle potential
 /// gRPC errors.
@@ -34,25 +34,25 @@ import 'package:haveno/src/schema/mixins.dart';
 /// This service is designed to work with a [HavenoChannel], which must be 
 /// connected to perform operations. The service throws custom exceptions 
 /// if the client is not connected or if any gRPC errors are encountered.
-class AccountClient with GrpcErrorHandler {
+class AccountService with GrpcErrorHandler {
   /// The [HavenoChannel] used for making requests to the Haveno server.
   final HavenoChannel havenoChannel = HavenoChannel();
 
   /// A flag indicating whether the account exists on the Haveno server.
   /// The value is null if the existence check has not been performed yet.
-  bool? _accountExists;
+  //bool? _accountExists;
 
-  /// Constructor for [AccountClient] that initializes it with a [HavenoChannel].
+  /// Constructor for [AccountService] that initializes it with a [HavenoChannel].
   ///
   /// The [havenoChannel] parameter is required and must be connected to
   /// perform any operations.
-  AccountClient();
+  AccountService();
 
   /// Getter to retrieve the account existence flag.
   ///
   /// Returns `true` if the account exists, `false` if it does not exist,
   /// or `null` if the existence check has not been performed.
-  bool? get accountExists => _accountExists;
+  //bool? get accountExists => _accountExists;
 
   /// Checks if an account exists on the Haveno server.
   ///
@@ -61,7 +61,7 @@ class AccountClient with GrpcErrorHandler {
   /// Returns `true` if the account exists, `false` otherwise.
   ///
   /// Throws specific exceptions depending on the gRPC error encountered.
-  Future<bool> checkAccountExists() async {
+  Future<bool> accountExists() async {
     if (!havenoChannel.isConnected) {
       throw DaemonNotConnectedException();
     }

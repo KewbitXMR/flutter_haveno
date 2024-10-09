@@ -20,10 +20,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
-import 'package:haveno/src/grpc/pb.pb.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/pb.pb.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A service that provides methods to interact with payment accounts and payment methods
@@ -31,12 +31,12 @@ import 'package:haveno/src/schema/mixins.dart';
 ///
 /// This class contains methods to fetch payment methods, create payment accounts, and 
 /// retrieve payment account forms from the Haveno daemon.
-class PaymentAccountClient with GrpcErrorHandler {
+class PaymentAccountService with GrpcErrorHandler {
   /// The gRPC client for interacting with the Haveno daemon.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Constructs a [PaymentAccountClient] with the provided [HavenoChannel].
-  PaymentAccountClient();
+  /// Constructs a [PaymentAccountService] with the provided [HavenoChannel].
+  PaymentAccountService();
   
   /// Fetches the list of all available payment methods from the Haveno daemon.
   ///

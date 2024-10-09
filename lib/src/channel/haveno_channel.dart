@@ -22,7 +22,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 
 /// A singleton class to manage gRPC connections and client instances
 /// for interacting with the Haveno daemon.

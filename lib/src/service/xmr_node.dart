@@ -20,10 +20,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
-import 'package:haveno/src/grpc/pb.pb.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/pb.pb.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A provider for XMR (Monero) node settings via the Haveno gRPC API.
@@ -32,12 +32,12 @@ import 'package:haveno/src/schema/mixins.dart';
 /// from the Haveno gRPC server. It uses the [HavenoChannel] to send requests and
 /// handle responses related to XMR node settings, and it handles gRPC errors
 /// using the [GrpcErrorHandler] mixin.
-class XmrNodeProvider with GrpcErrorHandler {
+class XmrNodeService with GrpcErrorHandler {
 
   /// The Haveno client used to communicate with the Haveno gRPC server.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Creates an [XmrNodeProvider] instance.
+  /// Creates an [XmrNodeService] instance.
   ///
   /// The [havenoChannel] is required to interact with the Haveno gRPC server
   /// for fetching Monero node settings for the local node.
@@ -47,7 +47,7 @@ class XmrNodeProvider with GrpcErrorHandler {
   /// ```dart
   /// final xmrNodeProvider = XmrNodeProvider(havenoChannel);
   /// ```
-  XmrNodeProvider();
+  XmrNodeService();
 
   /// Fetches the XMR node settings from the server.
   ///

@@ -22,10 +22,10 @@
 import 'dart:async';
 import 'package:fixnum/fixnum.dart' as fixnum;
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
-import 'package:haveno/src/grpc/pb.pb.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/pb.pb.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A service that handles trade-related operations via the Haveno gRPC API.
@@ -34,12 +34,12 @@ import 'package:haveno/src/schema/mixins.dart';
 /// fetching trade data, sending chat messages, confirming payments, and more.
 /// It uses the [HavenoChannel] for gRPC communication and provides error handling
 /// via the [GrpcErrorHandler] mixin.
-class TradesClient with GrpcErrorHandler {
+class TradesService with GrpcErrorHandler {
   
   /// The Haveno client used to communicate with the Haveno gRPC server.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Constructs a [TradesClient] instance.
+  /// Constructs a [TradesService] instance.
   ///
   /// The [havenoChannel] is required to interact with the Haveno gRPC server
   /// for various trade-related operations.
@@ -49,7 +49,7 @@ class TradesClient with GrpcErrorHandler {
   /// ```dart
   /// final tradesClient = TradesClient(havenoChannel);
   /// ```
-  TradesClient();
+  TradesService();
 
   /// Retrieves all trades from the Haveno gRPC server.
   ///
@@ -59,7 +59,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final trades = await tradesClient.getTrades();
+  /// final trades = await tradesService.getTrades();
   /// if (trades != null) {
   ///   for (final trade in trades) {
   ///     print('Trade ID: ${trade.tradeId}');
@@ -96,7 +96,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final trade = await tradesClient.getTrade('1234');
+  /// final trade = await tradesService.getTrade('1234');
   /// print('Trade ID: ${trade?.tradeId}');
   /// ```
   ///
@@ -126,7 +126,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final trade = await tradesClient.takeOffer('offerId', 'paymentId', amount);
+  /// final trade = await tradesService.takeOffer('offerId', 'paymentId', amount);
   /// print('Trade ID: ${trade?.tradeId}');
   /// ```
   ///
@@ -159,7 +159,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await tradesClient.sendChatMessage('tradeId', 'Hello!');
+  /// await tradesService.sendChatMessage('tradeId', 'Hello!');
   /// ```
   ///
   /// Throws:
@@ -184,7 +184,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// final messages = await tradesClient.getChatMessages('tradeId');
+  /// final messages = await tradesService.getChatMessages('tradeId');
   /// for (final message in messages) {
   ///   print('Message: ${message.text}');
   /// }
@@ -214,7 +214,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await tradesClient.confirmPaymentSent('tradeId');
+  /// await tradesService.confirmPaymentSent('tradeId');
   /// ```
   ///
   /// Returns:
@@ -241,7 +241,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await tradesClient.confirmPaymentReceived('tradeId');
+  /// await tradesService.confirmPaymentReceived('tradeId');
   /// ```
   ///
   /// Returns:
@@ -268,7 +268,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await tradesClient.completeTrade('tradeId');
+  /// await tradesService.completeTrade('tradeId');
   /// ```
   Future<void> completeTrade(String? tradeId) async {
     if (!havenoChannel.isConnected) {
@@ -290,7 +290,7 @@ class TradesClient with GrpcErrorHandler {
   /// Example:
   ///
   /// ```dart
-  /// await tradesClient.withdrawFunds('tradeId', 'address', 'memo');
+  /// await tradesService.withdrawFunds('tradeId', 'address', 'memo');
   /// ```
   Future<void> withdrawFunds(
       String? tradeId, String? address, String? memo) async {

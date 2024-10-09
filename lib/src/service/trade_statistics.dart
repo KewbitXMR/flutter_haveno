@@ -20,10 +20,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
-import 'package:haveno/src/grpc/pb.pb.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/pb.pb.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A service that handles the retrieval of trade statistics from the Haveno gRPC API.
@@ -33,7 +33,7 @@ import 'package:haveno/src/schema/mixins.dart';
 /// service and uses the [HavenoChannel] to make requests and receive responses. 
 /// 
 /// This class also uses the [GrpcErrorHandler] mixin to handle potential gRPC errors.
-class TradeStatisticsClient with GrpcErrorHandler {
+class TradeStatisticsService with GrpcErrorHandler {
   
   /// The Haveno client used to communicate with the Haveno gRPC server.
   ///
@@ -41,7 +41,7 @@ class TradeStatisticsClient with GrpcErrorHandler {
   /// and perform operations such as retrieving trade statistics.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Constructs a [TradeStatisticsClient] with the given [HavenoChannel].
+  /// Constructs a [TradeStatisticsService] with the given [HavenoChannel].
   ///
   /// This constructor requires a [HavenoChannel] to interact with the Haveno gRPC
   /// service and retrieve trade statistics. The client must be connected to the
@@ -52,7 +52,7 @@ class TradeStatisticsClient with GrpcErrorHandler {
   /// ```dart
   /// final tradeClient = TradeStatisticsClient(havenoChannel);
   /// ```
-  TradeStatisticsClient();
+  TradeStatisticsService();
 
   /// Retrieves trade statistics from the Haveno gRPC server.
   ///

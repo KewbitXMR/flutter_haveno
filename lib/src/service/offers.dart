@@ -21,9 +21,9 @@
 
 import 'dart:async';
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/schema/mixins.dart';
 import 'package:fixnum/fixnum.dart' as fixnum;
 
@@ -32,12 +32,12 @@ import 'package:fixnum/fixnum.dart' as fixnum;
 /// This class provides methods to interact with the Haveno network to manage 
 /// trade offers, including fetching peer offers, fetching user's offers, posting
 /// new offers, canceling existing offers, and editing offers.
-class OfferClient with GrpcErrorHandler {
+class OfferService with GrpcErrorHandler {
   /// Client used to communicate with the Haveno Daemon.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Constructs an [OfferClient] instance with the given [HavenoChannel].
-  OfferClient();
+  /// Constructs an [OfferService] instance with the given [HavenoChannel].
+  OfferService();
 
   /// Fetches all offers from the Haveno network.
   /// 

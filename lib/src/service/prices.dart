@@ -20,9 +20,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'package:grpc/grpc.dart';
-import 'package:haveno/src/client/haveno_channel.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 import 'package:haveno/src/exceptions/connection_exceptions.dart';
-import 'package:haveno/src/grpc/grpc.pbgrpc.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/schema/mixins.dart';
 
 /// A service that handles the retrieval of market price information for XMR
@@ -32,9 +32,9 @@ import 'package:haveno/src/schema/mixins.dart';
 /// [HavenoChannel], sending requests to fetch the latest market prices for 
 /// XMR. It also manages exceptions related to gRPC connections and operations.
 ///
-/// The [PriceClient] uses the [GrpcErrorHandler] mixin to manage any errors
+/// The [PriceService] uses the [GrpcErrorHandler] mixin to manage any errors
 /// related to gRPC requests and responses.
-class PriceClient with GrpcErrorHandler {
+class PriceService with GrpcErrorHandler {
   
   /// The Haveno client used to communicate with the Haveno gRPC server.
   ///
@@ -42,7 +42,7 @@ class PriceClient with GrpcErrorHandler {
   /// server and performing requests such as retrieving market prices.
   final HavenoChannel havenoChannel = HavenoChannel();
 
-  /// Creates a new [PriceClient] instance.
+  /// Creates a new [PriceService] instance.
   ///
   /// The constructor accepts an instance of [HavenoChannel], which is used 
   /// to perform gRPC operations such as fetching market prices. The client 
@@ -52,12 +52,12 @@ class PriceClient with GrpcErrorHandler {
   /// Example:
   /// 
   /// ```dart
-  /// final priceClient = PriceClient(havenoChannel);
+  /// final priceClient = PriceService(havenoChannel);
   /// ```
   ///
   /// Throws:
   /// - [DaemonNotConnectedException] if the Haveno client is not connected.
-  PriceClient();
+  PriceService();
 
   /// Retrieves the current market prices for XMR (Monero) from the Haveno gRPC service.
   ///

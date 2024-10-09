@@ -21,12 +21,14 @@
 
 import 'dart:async';
 import 'package:grpc/service_api.dart';
-import 'package:haveno/haveno.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
+import 'package:haveno/src/grpc_codegen/grpc.pb.dart';
 
-/// A client class to manage notifications from the Haveno daemon.
-class NotificationsClient {
+
+/// A service class to manage notifications from the Haveno daemon.
+class NotificationsService {
   /// Instance of [HavenoChannel] used to communicate with the Haveno service.
-  final HavenoChannel havenoService = HavenoChannel();
+  final HavenoChannel havenoChannel = HavenoChannel();
 
   /// A map holding listeners for each notification type.
   /// Each notification type is associated with a list of callback functions.
@@ -41,8 +43,8 @@ class NotificationsClient {
   /// A flag indicating whether the client is actively listening for notifications.
   bool _isListening = false;
 
-  /// Constructor for [NotificationsClient].
-  NotificationsClient();
+  /// Constructor for [NotificationsService].
+  NotificationsService();
 
   /// Adds a listener for a specific notification type.
   ///
@@ -74,14 +76,14 @@ class NotificationsClient {
     _isListening = true;
 
     // Keep retrying until the daemon is connected.
-    while (!havenoService.isConnected) {
+    while (!havenoChannel.isConnected) {
       print('Service is not connected, retrying in 1 minute...');
       await Future.delayed(const Duration(minutes: 1));
     }
 
     try {
       // Register and listen to notifications from the service.
-      ResponseStream<NotificationMessage> responseStream = havenoService.notificationsClient!
+      ResponseStream<NotificationMessage> responseStream = havenoChannel.notificationsClient!
           .registerNotificationListener(RegisterNotificationListenerRequest());
 
       _notificationSubscription = responseStream.listen(
