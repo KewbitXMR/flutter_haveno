@@ -1,6 +1,8 @@
-version: 2
+version: 3.0.1
 build:
   os: ubuntu-22.04
+  tools:  # Add this section to specify tools (if any)
+    python: "3.10"  # Example: Use Python 3.10 for building the docs
 formats:
   - pdf
   - epub
