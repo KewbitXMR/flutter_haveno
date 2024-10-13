@@ -1,20 +1,12 @@
-# .readthedocs.yaml
-# Read the Docs configuration file for the Haveno Dart package on pub.dev
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
 version: 3.0.1
 build:
   os: ubuntu-22.04
-  tools:
-    java: "21"
-    dart: "stable"
-    flutter: "stable"
 formats:
-    - pdf
-    - epub
-environment:
-  FLUTTER_CHANNEL: stable
+  - pdf
+  - epub
+python:
+  install:
+    - requirements: docs/requirements.txt
 commands:
-  pre_build:
-    - dart pub get
-    - dart doc
+  build:
+    - sphinx-build -b html docs/ _build/html
