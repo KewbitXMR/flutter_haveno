@@ -1,14 +1,11 @@
 version: 2
 build:
   os: ubuntu-22.04
-  tools:  # Add this section to specify tools (if any)
-    python: "3.10"  # Example: Use Python 3.10 for building the docs
+  tools:
+    python: "3.10"
 formats:
   - pdf
   - epub
 python:
   install:
     - requirements: docs/requirements.txt
-commands:
-  build:
-    - sphinx-build -b html docs/ _build/html
