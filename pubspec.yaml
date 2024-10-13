@@ -1,7 +1,9 @@
 name: haveno
-description: "A client daemon interface for the P2P decentralised exchange for Monero"
-version: 2.0.1
+description: "A client interface for the P2P decentralised Haveno exchange for Monero"
+version: 3.0.1
 homepage: https://haveno.com
+repository: https://github.com/KewbitXMR/haveno-app/
+issue_tracker: https://github.com/KewbitXMR/haveno-app/issues
 
 environment:
   sdk: '>=3.4.4 <4.0.0'

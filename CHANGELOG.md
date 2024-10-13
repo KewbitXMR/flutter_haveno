@@ -110,3 +110,11 @@
 # 2.0.1
 
 * Type
+
+# 3.0.0
+
+* Reorganised imports and exports breaking changes, better docs
+
+# 3.0.1
+
+* Added models for gRPC and Protobuf for importating

@@ -19,16 +19,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:haveno/haveno.dart';
+import 'package:haveno/src/channel/haveno_channel.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final HavenoChannel havenoChannel = HavenoChannel();
-    try {
-      havenoChannel.connect('127.0.0.1', 3306, '');
-    } catch (e) {
-      throw Exception(e);
-    }
-  });
+  final HavenoChannel havenoChannel = HavenoChannel();
+  try {
+    havenoChannel.connect('127.0.0.1', 3306, '');
+  } catch (e) {
+    throw Exception(e);
+  }
 }

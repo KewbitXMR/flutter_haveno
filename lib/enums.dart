@@ -19,9 +19,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-library haveno;
+library enums;
 
-export 'src/channel/haveno_channel.dart';
-export 'src/service/services.dart';
-export 'src/exceptions/exceptions.dart';
-export 'src/grpc_codegen/gprc.dart';
+export 'src/grpc_codegen/grpc.pbenum.dart';
+export 'src/grpc_codegen/pb.pbenum.dart';

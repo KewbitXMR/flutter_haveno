@@ -20,7 +20,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:grpc/grpc.dart';
 import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 
@@ -73,7 +72,7 @@ class HavenoChannel {
   /// the connection. If already connected, it will return early.
   Future<void> connect(String host, int port, String password) async {
     if (isConnected) {
-      debugPrint(
+      print(
           "We tried to connect to the Haveno daemon a second time, if you need to reconnect you must disconnect first then run .connect()");
       return; // Already connected, do nothing.
     }
@@ -110,7 +109,7 @@ class HavenoChannel {
     if (_host == null || _port == null || _password == null || _channel == null) {
       throw Exception('HavenoChannel not properly initialized');
     }
-    debugPrint("Started initializing clients...");
+    print("Started initializing clients...");
 
     // Set the CallOptions with metadata (e.g., password)
     final callOptions = CallOptions(metadata: {'password': _password!});
@@ -132,7 +131,7 @@ class HavenoChannel {
     tradesClient = TradesClient(_channel!, options: callOptions);
     walletsClient = WalletsClient(_channel!, options: callOptions);
 
-    debugPrint("Initialized all clients!");
+    print("Initialized all clients!");
   }
 
   /// Internal method to check the connection with the Haveno daemon.
@@ -149,22 +148,22 @@ class HavenoChannel {
 
         // Check if a valid version is returned by the daemon
         if (getVersionReply != null && getVersionReply.hasVersion()) {
-          debugPrint("Successfully got the version for the daemon as ${getVersionReply.version}");
+          print("Successfully got the version for the daemon as ${getVersionReply.version}");
           success = true;
         } else {
-          debugPrint("The daemon returned a null server version, so the connection was a failure");
+          print("The daemon returned a null server version, so the connection was a failure");
           success = false;
         }
       } catch (e) {
         // Handle connection failure
-        debugPrint("Failed to make an initial connection: $e");
-        debugPrint("We used the following details... HOST: $_host PORT: $_port PASSWORD: $_password");
+        print("Failed to make an initial connection: $e");
+        print("We used the following details... HOST: $_host PORT: $_port PASSWORD: $_password");
         success = false;
       }
 
       // Retry logic
       if (!success && untilSuccessful) {
-        debugPrint("Retrying connection in ${cooldownInterval.inSeconds} seconds...");
+        print("Retrying connection in ${cooldownInterval.inSeconds} seconds...");
         await Future.delayed(cooldownInterval); // Wait before retrying
       }
 
@@ -230,7 +229,7 @@ class HavenoChannel {
 
   @override
   Future<ClientTransportConnection> connect() async {
-    debugPrint("Connecting to proxy 127.0.0.1:$proxyPort for $targetHost:$targetPort");
+    print("Connecting to proxy 127.0.0.1:$proxyPort for $targetHost:$targetPort");
     _socket = await _connectToProxy(targetHost, targetPort);
     return ClientTransportConnection.viaSocket(_socket);
   }
@@ -238,7 +237,7 @@ class HavenoChannel {
   // This version works with Orbot
   Future<Socket> _connectToProxy(String host, int port) async {
     // Log start of the connection process
-    debugPrint('Attempting to connect to proxy at $host:$port');
+    print('Attempting to connect to proxy at $host:$port');
     
     // Establish SOCKS5 connection through the proxy.
     var proxySocket = await SocksTCPClient.connect(
@@ -249,16 +248,16 @@ class HavenoChannel {
     
     // Check if the socket is connected
     if (proxySocket.socket != null && proxySocket.socket.remoteAddress != null) {
-      debugPrint('Successfully connected to proxy. Remote address: ${proxySocket.socket.remoteAddress}');
+      print('Successfully connected to proxy. Remote address: ${proxySocket.socket.remoteAddress}');
     } else {
-      debugPrint('Failed to connect to the proxy. Socket or remote address is null.');
+      print('Failed to connect to the proxy. Socket or remote address is null.');
     }
 
     // Log the connection details
-    debugPrint('Socket connected to ${proxySocket.socket.remoteAddress}:${proxySocket.socket.remotePort}');
+    print('Socket connected to ${proxySocket.socket.remoteAddress}:${proxySocket.socket.remotePort}');
     
     // Log a success message
-    debugPrint('Proxy connection established.');
+    print('Proxy connection established.');
 
     return proxySocket.socket;
   }
@@ -279,9 +278,9 @@ class HavenoChannel {
   String get authority => '$targetHost:$targetPort'; */
 
 /*   Future<Socket> _connectToProxyRust(String host, int port) async {
-    debugPrint('Starting SOCKS5 connection through native Tor...');
-    debugPrint('Proxy Host: $proxyHost, Proxy Port: $proxyPort');
-    debugPrint('Target Host: $host, Target Port: $port');
+    print('Starting SOCKS5 connection through native Tor...');
+    print('Proxy Host: $proxyHost, Proxy Port: $proxyPort');
+    print('Target Host: $host, Target Port: $port');
 
     try {
       final proxySocket = await SOCKSSocket.create(
@@ -289,19 +288,19 @@ class HavenoChannel {
         proxyPort: proxyPort!,
         sslEnabled: false,
       );
-      debugPrint('SOCKSSocket created: $proxySocket');
+      print('SOCKSSocket created: $proxySocket');
 
-      debugPrint('Attempting to connect to the proxy...');
+      print('Attempting to connect to the proxy...');
       await proxySocket.connect();
-      debugPrint('Successfully connected to the SOCKS5 proxy on $proxyHost:$proxyPort');
+      print('Successfully connected to the SOCKS5 proxy on $proxyHost:$proxyPort');
 
       await Future.delayed(const Duration(seconds: 2));
-      debugPrint('Connection delay complete, proceeding to connect to the target host...');
+      print('Connection delay complete, proceeding to connect to the target host...');
 
       await proxySocket.connectTo(host, port);
 
       await Future.delayed(const Duration(seconds: 2));
-      debugPrint('Successfully connected to target host $host:$port through the SOCKS5 proxy.');
+      print('Successfully connected to target host $host:$port through the SOCKS5 proxy.');
 
       //await proxySocket.listen(onData)
 
@@ -309,8 +308,8 @@ class HavenoChannel {
       return proxySocket.socket;
 
     } catch (e, stackTrace) {
-      debugPrint('Error during SOCKS5 connection: $e');
-      debugPrint('StackTrace: $stackTrace');
+      print('Error during SOCKS5 connection: $e');
+      print('StackTrace: $stackTrace');
       rethrow;
     }
   }

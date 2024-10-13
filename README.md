@@ -40,7 +40,7 @@ Contributions are welcome! If you'd like to contribute to the development of the
 
 ## License
 
-This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This package is dual licensed licensed under the AGPLv3 license. See the [LICENSE](LICENSE) file for more details.
 
 ## Additional Resources
 You can find more additional resources such as documentation on the [Haveno website](https://haveno.com/documentation).

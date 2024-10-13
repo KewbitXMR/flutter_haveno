@@ -21,7 +21,7 @@
 
 import 'package:grpc/grpc.dart';
 import 'package:haveno/src/channel/haveno_channel.dart';
-import 'package:haveno/src/exceptions/exceptions.dart';
+import 'package:haveno/src/exceptions/haveno_exceptions.dart';
 import 'package:haveno/src/grpc_codegen/grpc.pbgrpc.dart';
 import 'package:haveno/src/grpc_codegen/pb.pb.dart';
 import 'package:haveno/src/schema/mixins.dart';

@@ -1,0 +1,33 @@
+# .readthedocs.yaml
+# Read the Docs configuration file for the core Haveno project
+# This configuration is intended for the Haveno Dart package on pub.dev
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+# Required
+version: 3.0.1
+
+# Set the OS, Java version, and tools required for building Haveno components
+build:
+  os: ubuntu-22.04
+  tools:
+    java: "21"  # Java for the Haveno daemon components
+    dart: "stable"  # Dart stable for Haveno package on pub.dev
+    flutter: "stable"  # Optional if any Flutter parts exist
+
+# Sphinx is used to build documentation located in the "docs/" directory
+#sphinx:
+#  configuration: docs/conf.py
+
+# Optionally build your docs in additional formats like PDF and ePub
+formats:
+    - pdf
+    - epub
+
+# Environment variables to support multi-component builds
+environment: # Java for Daemons
+  FLUTTER_CHANNEL: stable  # If Flutter is used in the project
+
+# Additional configuration if any custom commands for the Dart package are needed
+commands_extra:
+  dartdoc:
+    - dart doc  # Generates Dart documentation for the Haveno package
