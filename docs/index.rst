@@ -20,5 +20,5 @@ To view the API documentation for Haveno, visit the following link:
 
 .. raw:: html
 
-   <a href="_static/api/index.html">Dart API Documentation</a>
+   <a href="_static/index.html">Dart API Documentation</a>
 
