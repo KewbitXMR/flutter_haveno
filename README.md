@@ -9,7 +9,7 @@
 </div>
 
 
-Haveno Flutter is a client interface for the popular [Haveno](https://haveno.com/) peer-to-peer (P2P) decentralized exchange. This package provides a seamless way for Flutter developers to integrate Haveno's decentralized trading platform into their mobile and desktop applications.
+Haveno Flutter is a client interface for the popular Haveno peer-to-peer (P2P) decentralized exchange. This package provides a seamless way for Flutter developers to integrate Haveno's decentralized trading platform into their mobile and desktop applications.
 
 ## Overview
 
@@ -43,4 +43,4 @@ Contributions are welcome! If you'd like to contribute to the development of the
 This package is dual licensed licensed under the AGPLv3 license. See the [LICENSE](LICENSE) file for more details.
 
 ## Additional Resources
-You can find more additional resources such as documentation on the [Haveno website](https://haveno.com/documentation).
+You can find more additional resources such as documentation on the Haveno website.
