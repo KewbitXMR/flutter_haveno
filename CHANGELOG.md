@@ -121,4 +121,8 @@
 
 # 3.0.2
 
-* Fixed README 
+* Fixed README
+
+# 3.0.3
+
+* Fixed linking to the main app rather than the dart library

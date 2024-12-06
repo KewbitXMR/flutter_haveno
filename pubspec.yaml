@@ -1,9 +1,9 @@
 name: haveno
 description: "A client interface for the P2P decentralised Haveno exchange for Monero"
-version: 3.0.2
+version: 3.0.3
 homepage: https://haveno.com
-repository: https://github.com/KewbitXMR/haveno-app
-issue_tracker: https://github.com/KewbitXMR/haveno-app/issues
+repository: https://github.com/KewbitXMR/flutter_haveno
+issue_tracker: https://github.com/KewbitXMR/flutter_haveno/issues
 
 environment:
   sdk: '>=3.4.4 <4.0.0'
