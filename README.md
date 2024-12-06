@@ -2,10 +2,6 @@
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/haveno-dex/haveno-meta/721e52919b28b44d12b6e1e5dac57265f1c05cda/logo/haveno_logo_landscape.svg" alt="Haveno logo">
-
-  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/505405b43cb74d5a996f106a3371588e)](https://app.codacy.com/gh/haveno-dex/haveno/dashboard)
-  ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/haveno-dex/haveno/build.yml?branch=master)
-  ![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)
 </div>
 
 
@@ -31,7 +27,7 @@ To start using the Haveno Flutter package in your Flutter application, check out
 ### Usage
 
 ```
-import 'package:haveno/haveno.dart';
+import 'package:haveno/haveno_client.dart';
 ```
 
 ## Contributing

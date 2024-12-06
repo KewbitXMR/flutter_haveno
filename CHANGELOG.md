@@ -118,3 +118,7 @@
 # 3.0.1
 
 * Added models for gRPC and Protobuf for importating
+
+# 3.0.2
+
+* Fixed README 
